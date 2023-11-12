@@ -63,6 +63,7 @@ tx_hash = w3.eth.send_raw_transaction(signed_tx.rawTransaction)
 tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
 print("Deployed!")
 
+# contract call
 _simpleStorage = w3.eth.contract(address=tx_receipt.contractAddress, abi=abi)
 print("Initial value: ", _simpleStorage.functions.retrieve().call())
 print("Updating contract...")
